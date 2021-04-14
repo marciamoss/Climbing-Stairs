@@ -15,10 +15,7 @@ class StairsCombination extends Component {
         },
         handleShow() {
         this.setState({ show: true });
-        },
-        modaltxt1:"",
-        modaltxt2:"",
-        modaltxt3:""
+        }
       };
     }
 
@@ -39,13 +36,13 @@ class StairsCombination extends Component {
             this.setState({show:true, handleClose: handleCloseCopy});
         }
         else {
-            let stepsCombination = await this.getCount(steps) 
-            this.setState({stepsCombination: stepsCombination})
+            let stepsCombination = await this.getCount(steps);
+            this.setState({stepsCombination: stepsCombination, show:true, handleClose: handleCloseCopy});
         }
     };
 
     getCount(steps) {
-        if (steps === 0 || steps ===1) {
+        if (steps === 0 || steps === 1) {
             return 1;
         } else if (steps === 2) {
             return 2;
@@ -63,8 +60,7 @@ class StairsCombination extends Component {
                     </div>
                 </div>
                 <form> 
-                    <PopUps show={this.state.show} handleClose={this.state.handleClose} totalSteps={this.state.totalSteps} 
-                            modaltxt1={this.state.modaltxt1} modaltxt2={this.state.modaltxt2}  modaltxt3={this.state.modaltxt3}>
+                    <PopUps show={this.state.show} handleClose={this.state.handleClose} steps={this.state.steps} stepsCombination={this.state.stepsCombination}>
 
                     </PopUps>
                     <div className="row mt-5">
@@ -100,17 +96,6 @@ class StairsCombination extends Component {
                                 </FormBtn>
                             </div>
                         </div>
-                        { this.state.stepsCombination ? (
-                            <div className="row">
-                                <div className="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
-                                <div className="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                    <p style={{fontWeight: "bold", color:"orange"}}>Number of possible combination for total number of steps {this.state.steps} using 1 or 2 steps: {this.state.stepsCombination}</p>
-                                </div>
-                                <div className="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5"></div>
-                            </div>
-                        ) : (
-                            null
-                        )}
                 </form>
 
             </div>
