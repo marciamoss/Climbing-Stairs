@@ -1,4 +1,7 @@
 # ClimbingStairs
+
+* Hosted App Link https://climbing-stairs.herokuapp.com/
+
 * 'climbingStairs' takes the following parameter:
 
     totalSteps: an integer, total n steps to the top.
@@ -20,4 +23,4 @@
     Output: 3
     There are three ways to the top (1 + 1 + 1), (1 + 2), and (2 + 1).
 
-* To start the app run `npm install` and then `npm start`
+* To start the app on your local machine run `npm install` and then `npm start`
