@@ -42,13 +42,16 @@ class StairsCombination extends Component {
     };
 
     getCount(steps) {
-        if (steps === 0 || steps === 1) {
-            return 1;
-        } else if (steps === 2) {
-            return 2;
-        } else {
-            return this.getCount(steps - 2) + this.getCount(steps - 1);
+        let start = 0;
+        let stepUp = 1;
+        let sum = 0;
+        let i = 0;
+        for(i = 0; i < steps; i++){
+            sum = start+stepUp;
+            start = stepUp;
+            stepUp = sum;
         }
+        return stepUp;
     }
 
     render() {
@@ -67,7 +70,6 @@ class StairsCombination extends Component {
                         <div className="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
                         <div className="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <label style={{fontWeight: "bold", color:"orange"}}>Enter the total number of steps</label>
-                            <p style={{fontWeight: "bold", color:"yellow"}}>(For steps above 40 the response takes a while, for testing use maximum steps below 40)</p>
                             <Input
                                 value={this.state.totalSteps}
                                 onChange={this.handleInputChange}
